@@ -3,26 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/IndexPageFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.pokersimulator.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/IndexPageFragment"
+        android:name="com.example.pokersimulator.IndexPageFragment"
+        android:label="@string/index_page_fragment_label"
+        tools:layout="@layout/index_page_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_create_room"
+            app:destination="@id/RoomFragment" />
+        <action
+            android:id="@+id/action_join_room"
+            app:destination="@id/listRoomFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.pokersimulator.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/RoomFragment"
+        android:name="com.example.pokersimulator.RoomFragment"
+        android:label="@string/room_fragment_label"
+        tools:layout="@layout/room_fragment" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_start_game"
+            app:destination="@id/gameBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameBoardFragment"
+        android:name="com.example.pokersimulator.GameBoardFragment"
+        android:label="game_board_fragment"
+        tools:layout="@layout/game_board_fragment" />
+    <fragment
+        android:id="@+id/listRoomFragment"
+        android:name="com.example.pokersimulator.ListRoomFragment"
+        android:label="list_room_fragment"
+        tools:layout="@layout/list_room_fragment" >
+        <action
+            android:id="@+id/action_join_selected_room"
+            app:destination="@id/RoomFragment" />
     </fragment>
 </navigation>
